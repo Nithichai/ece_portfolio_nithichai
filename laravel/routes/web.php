@@ -18,4 +18,9 @@ Route::get('/', function () {
 Route::get('home', 'HomeController@index')->name('home');
 Auth::routes();
 Route::resource('welcome', 'WelcomeController');
-Route::resource('students', 'StudentController');
+Route::resource('students', 'StudentController', ['only' => [
+    'index', 'create'
+]]);
+Route::get('profile', 'ProfileController@index');
+Route::get('profile/edit', 'ProfileController@edit');
+Route::post('profile', 'ProfileController@store');

@@ -10,30 +10,44 @@
                     <form class="form-horizontal" method="POST" action="/students">
                         {{ csrf_field() }}
                         <div class="form-group">
+                            <label for="name" class="col-md-4 control-label">Name</label>
+                            <div class="col-md-6">
+                                {{ Auth::user()->name }}
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <label for="student_id" class="col-md-4 control-label">Student ID</label>
                             <div class="col-md-6">
-                                <input id="student_id" type="text" class="form-control" name="student_id" value="{{ old('student_id') }}" required>
+                                {{ $personal->student_id }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="col-md-4 control-label">Email</label>
+                            <div class="col-md-6">
+                                {{ Auth::user()->email }}
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="address" class="col-md-4 control-label">Address</label>
                             <div class="col-md-6">
-                                <textarea id="address" class="form-control" name="address" required></textarea>
+                                {{ $personal->address }}
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="gpa" class="col-md-4 control-label">GPA</label>
                             <div class="col-md-6">
-                                <input id="gpa" type="text" class="form-control" name="gpa" required>
+                                <div class="col-md-6">
+                                    {{ $personal->GPA }}
+                                </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Register
-                                </button>
-                                <a href="/students" class="btn btn-default">
-                                    Back
+                                <a href="/home" class="btn btn-default">
+                                    back
+                                </a>
+                                <a href="/profile/edit" class="btn btn-primary">
+                                    edit
                                 </a>
                             </div>
                         </div>

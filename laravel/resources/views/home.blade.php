@@ -14,7 +14,13 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    <!-- You are logged in! -->
+                    <div>
+                        <a href="/profile">see your profile</a>
+                    </div>
+                    <div>
+                        <a href="/profile/edit">edit your profile</a>
+                    </div>
                 </div>
             </div>
         </div>
