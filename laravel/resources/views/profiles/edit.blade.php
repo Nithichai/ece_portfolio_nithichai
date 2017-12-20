@@ -7,7 +7,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Edit Student Accout</div>
                 <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="/students">
+                    <form class="form-horizontal" method="POST" action="/profile">
                         {{ csrf_field() }}
                         <div class="form-group">
                             <label for="name" class="col-md-4 control-label">Name</label>
@@ -28,21 +28,22 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="gpa" class="col-md-4 control-label">GPA</label>
-                            <div class="col-md-6">
-                                <input id="gpa" type="text" class="form-control" name="{{ $personal->GPA }}" required>
-                            </div>
-                        </div>
-                        <div class="form-group">
                             <label for="address" class="col-md-4 control-label">Address</label>
                             <div class="col-md-6">
-                                <textarea id="address" class="form-control" name="{{ $personal->address }}" required></textarea>
+                                <textarea id="address" class="form-control" name="address" required>{{ $personal->address }}</textarea>
                             </div>
                         </div>
-
+                        <div class="form-group">
+                            <label for="gpa" class="col-md-4 control-label">GPA</label>
+                            <div class="col-md-6">
+                                <input id="gpa" type="text" class="form-control" name="gpa" value="{{ $personal->GPA }}" required>
+                            </div>
+                        </div>
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                <input type="submit" value="ok" action="/profile" method="post" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary">
+                                    ok
+                                </button>
                                 <a href="/home" class="btn btn-default">cancel</a>
                             </div>
                         </div>

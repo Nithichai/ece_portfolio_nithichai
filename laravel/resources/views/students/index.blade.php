@@ -82,9 +82,9 @@
                 </div>
                 <div class="links">
                     <a href="/welcome">back</a>
-                    @auth
+                    <!-- @auth
                         <a href="/students/create">create your portfolio</a>
-                    @endauth
+                    @endauth -->
                 </div>
             </div>
         </div>

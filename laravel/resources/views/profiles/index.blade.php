@@ -43,11 +43,11 @@
                         </div>
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                <a href="/home" class="btn btn-default">
-                                    back
-                                </a>
                                 <a href="/profile/edit" class="btn btn-primary">
                                     edit
+                                </a>
+                                <a href="/home" class="btn btn-default">
+                                    back
                                 </a>
                             </div>
                         </div>

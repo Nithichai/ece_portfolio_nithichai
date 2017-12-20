@@ -15,20 +15,37 @@ class ProfileController extends Controller
     }
 
     public function index() {
-        $personal = Personal::where('email', Auth::user()->email)->get();
+        $personal = Personal::where('id', Auth::id())->get();
+        if (!count($personal)) {
+            $personal = new Personal;
+            $personal->user_id = Auth::id();
+            $personal->save();
+        }
         return view('profiles.index', [
             'personal' => $personal[0]
         ]);
     }
 
     public function edit() {
-        $personal = Personal::where('email', Auth::user()->email)->get();
+        $personal = Personal::where('id', Auth::id())->get();
+        if (!count($personal)) {
+            $personal = new Personal;
+            $personal->user_id = Auth::id();
+            $personal->save();
+        }
         return view('profiles.edit', [
             'personal' => $personal[0]
         ]);
     }
 
     public function store(Request $request) {
+        $personal = Personal::where('id', Auth::id())
+        ->update([
+            'student_id' => $request->student_id,
+            'user_id' => Auth::id(),
+            'address' => $request->address,
+            'GPA' => $request->gpa
+        ]);
         return redirect('/profile');
     }
 }

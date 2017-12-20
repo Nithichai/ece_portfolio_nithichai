@@ -19,21 +19,12 @@ class StudentController extends Controller
     }
 
     public function store(Request $request) {
-        $personal = Personal::where('email', Auth::user()->email)
-            ->take(1)
-            ->get();
+        $personal = Personal::where('user_id', Auth::id())->get();
         if (count($personal) > 0) {
-            // make alert please
             return redirect('/students/create');
         }
         $this->middleware('auth');
-        $personal = new Personal;
-        $personal->student_id = $request->student_id;
-        $personal->user_id = Auth::id();
-        $personal->email = Auth::user()->email;
-        $personal->address = $request->address;
-        $personal->GPA = $request->gpa;
-        $personal->save();
+        $this->create_column($request);
         return redirect('/home');
     }
 
@@ -51,5 +42,15 @@ class StudentController extends Controller
 
     public function destroy($id) {
 
+    }
+
+    private function create_column(Request $request) {
+        $personal = new Personal;
+        $personal->student_id = $request->student_id;
+        $personal->user_id = Auth::id();
+        $personal->email = Auth::user()->email;
+        $personal->address = $request->address;
+        $personal->GPA = $request->gpa;
+        $personal->save();
     }
 }

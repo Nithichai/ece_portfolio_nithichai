@@ -19,7 +19,7 @@ Route::get('home', 'HomeController@index')->name('home');
 Auth::routes();
 Route::resource('welcome', 'WelcomeController');
 Route::resource('students', 'StudentController', ['only' => [
-    'index', 'create'
+    'index'
 ]]);
 Route::get('profile', 'ProfileController@index');
 Route::get('profile/edit', 'ProfileController@edit');
