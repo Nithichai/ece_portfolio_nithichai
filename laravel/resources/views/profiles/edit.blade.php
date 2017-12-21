@@ -49,6 +49,12 @@
                         </div>
                     </form>
                 </div>
+                <div class="panel-body">
+                    <form class="form-horizontal" method="POST" action="/profile">
+                        {{ csrf_field() }}
+
+                    </form>
+                </div>
             </div>
         </div>
     </div>

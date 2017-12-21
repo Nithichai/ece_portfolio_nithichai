@@ -36,9 +36,7 @@
                         <div class="form-group">
                             <label for="gpa" class="col-md-4 control-label">GPA</label>
                             <div class="col-md-6">
-                                <div class="col-md-6">
-                                    {{ $personal->GPA }}
-                                </div>
+                                {{ $personal->GPA }}
                             </div>
                         </div>
                         <div class="form-group">
