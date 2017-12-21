@@ -17,10 +17,14 @@ Route::get('/', function () {
 
 Route::get('home', 'HomeController@index')->name('home');
 Auth::routes();
-Route::resource('welcome', 'WelcomeController');
+Route::resource('welcome', 'WelcomeController', ['only' => [
+    'index'
+]]);
 Route::resource('students', 'StudentController', ['only' => [
     'index'
 ]]);
 Route::get('profile', 'ProfileController@index');
 Route::get('profile/edit', 'ProfileController@edit');
 Route::post('profile', 'ProfileController@store');
+Route::post('personal/update', 'PersonalController@update');
+Route::post('reward/update', 'RewardController@update');

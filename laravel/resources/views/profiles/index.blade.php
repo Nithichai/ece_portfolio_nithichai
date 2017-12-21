@@ -16,15 +16,15 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="student_id" class="col-md-4 control-label">Student ID</label>
-                            <div class="col-md-6">
-                                {{ $personal->student_id }}
-                            </div>
-                        </div>
-                        <div class="form-group">
                             <label for="email" class="col-md-4 control-label">Email</label>
                             <div class="col-md-6">
                                 {{ Auth::user()->email }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="student_id" class="col-md-4 control-label">Student ID</label>
+                            <div class="col-md-6">
+                                {{ $personal->student_id }}
                             </div>
                         </div>
                         <div class="form-group">
