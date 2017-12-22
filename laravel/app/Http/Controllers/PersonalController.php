@@ -15,9 +15,9 @@ class PersonalController extends Controller
             'address' => $request->address,
             'GPA' => $request->gpa
         ]);
-        $personal = Personal::where('id', Auth::id())->get();
-        return view('profiles.edit', [
-            'personal' => $personal[0]
-        ]);
+        if ($personal) {
+            return "update complete";
+        }
+        return "update not complete";
     }
 }

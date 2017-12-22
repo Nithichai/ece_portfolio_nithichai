@@ -28,3 +28,5 @@ Route::get('profile/edit', 'ProfileController@edit');
 Route::post('profile', 'ProfileController@store');
 Route::post('personal/update', 'PersonalController@update');
 Route::post('reward/update', 'RewardController@update');
+Route::post('reward/add', 'RewardController@store');
+Route::post('reward/delete', 'RewardController@delete');

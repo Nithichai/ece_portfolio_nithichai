@@ -21,7 +21,7 @@ class ProfileController extends Controller
         $reward = $this->check_create_reward();
         return view('profiles.index', [
             'personal' => $personal[0],
-            'reward' => $reward[0]
+            'rewards' => $reward
         ]);
     }
 
@@ -30,23 +30,8 @@ class ProfileController extends Controller
         $reward = $this->check_create_reward();
         return view('profiles.edit', [
             'personal' => $personal[0],
-            'reward' => $reward[0]
+            'rewards' => $reward
         ]);
-    }
-
-    public function store(Request $request) {
-        // $user = User::where('id', Auth::id())
-        // ->update([
-        //     'name' => $request->name,
-        //     'email' => $request->email
-        // ]);
-        $personal = Personal::where('user_id', Auth::id())
-        ->update([
-            'student_id' => $request->student_id,
-            'address' => $request->address,
-            'GPA' => $request->gpa
-        ]);
-        return redirect('/profile');
     }
 
     private function check_create_personal() {
